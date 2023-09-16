@@ -7,7 +7,7 @@ typedef struct node{
 }*STACK;
 
 void initialize(STACK *S);
-void push(STACK *S, char newC);
+void push(STACK *S, char data);
 void pop(STACK *S);
 int isEmpty(STACK S);
 int isFull(STACK S);
@@ -18,10 +18,10 @@ void initialize(STACK *S){
 	*S = NULL;
 }
 
-void push(STACK *S, char newC){
-	STACK temp = (struct node*)malloc(sizeof(struct node)); //STACK*?
+void push(STACK *S, char data){
+	STACK temp = (struct node*)malloc(sizeof(struct node)); 
 	if(temp != NULL){
-		temp->elem = newC;
+		temp->elem = data;
 		temp->link = *S;
 		*S = temp;
 	}
