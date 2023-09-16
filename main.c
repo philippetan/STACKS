@@ -1,6 +1,12 @@
 #include "stackADTarray.h"
-#include "stackADTlinklist"
+#include "stackADTlinklist.h"
 
-int main(){
+void insertBottom(STACK *S, char data);
+
+void main(){
+
+}
+
+void insertBottom(STACK *S, char data){
 
 }
