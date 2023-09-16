@@ -8,7 +8,7 @@ typedef struct{
 }STACK;
 
 void initialize(STACK *S);
-void push(STACK *S, char newC);
+void push(STACK *S, char data);
 void pop(STACK *S);
 int isEmpty(STACK S);
 int isFull(STACK S); //1 - true, 0 - false
