@@ -11,6 +11,10 @@ void initialize(STACK *S);
 void push(STACK *S, char newC);
 void pop(STACK *S);
 int isEmpty(STACK *S);
+int isFull(STACK S);
+void display(STACK S);
+int top(STACK S);
+
 
 void initialize(STACK *S){
 	*S = NULL;
