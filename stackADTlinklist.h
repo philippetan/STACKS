@@ -1,6 +1,5 @@
 #ifndef STACKADTLINKLIST_H
 #define STACKADTLINKLIST_H
-#define MAX 8
 
 typedef struct node{
 	char elem;
@@ -13,7 +12,6 @@ void pop(STACK *S);
 int isEmpty(STACK *S);
 int isFull(STACK S);
 void display(STACK S);
-int top(STACK S);
 
 
 void initialize(STACK *S){
