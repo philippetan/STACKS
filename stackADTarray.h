@@ -13,7 +13,6 @@ void pop(STACK *S);
 int isEmpty(STACK *S);
 int isFull(STACK S); //1 - true, 0 - false
 void display(STACK S);
-int top(STACK S); //return top element
 
 void PUSH(STACK S,char data){
 
