@@ -1,6 +1,5 @@
 #ifndef STACKADTLINKLIST_H
 #define STACKADTLINKLIST_H
-#define MAX 8
 
 typedef struct node{
 	char elem;
@@ -10,10 +9,9 @@ typedef struct node{
 void initialize(STACK *S);
 void push(STACK *S, char newC);
 void pop(STACK *S);
-int isEmpty(STACK *S);
+int isEmpty(STACK S);
 int isFull(STACK S);
 void display(STACK S);
-int top(STACK S);
 
 
 void initialize(STACK *S){
@@ -21,12 +19,12 @@ void initialize(STACK *S){
 }
 
 void push(STACK *S, char newC){
-	STACK temp = (STACK*)malloc(sizeof(struct node));
+	STACK temp = (struct node*)malloc(sizeof(struct node)); //STACK*?
 	if(temp != NULL){
 		temp->elem = newC;
 		temp->link = *S;
+		*S = temp;
 	}
-	*S = temp;
 }
 
 void pop(STACK *S){ //no return, just delete
@@ -38,12 +36,27 @@ void pop(STACK *S){ //no return, just delete
 	}
 }
 
-int isEmpty(STACK *S){
-	if{
-		return 0;
-	}else{
-		return 1;
-	}  //return (*S == NULL) ? 0 : 1;
+int isEmpty(STACK S){
+	return (S == NULL) ? 1 : 0;
+}
+
+int isFull(STACK S){
+	return 0;	//linked list imp. rarely will get full
+}
+
+void display(STACK S){
+	if(S!=NULL){
+		STACK temp=NULL;
+		while(S!=NULL){
+			push(&temp, S->elem);
+			printf("%c ", S->elem);
+			pop(&S);
+		}
+		while(temp!=NULL){
+			push(&S, temp->elem);
+			pop(&temp);
+		}
+	}
 }
 
 #endif
