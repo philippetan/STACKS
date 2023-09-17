@@ -14,6 +14,7 @@ void pop(STACK *S);
 int isEmpty(STACK S);
 int isFull(STACK S); //1 - true, 0 - false
 void display(STACK S);
+void insertBottom(STACK *S, char data);
 
 void initialize(STACK *S){
     S->top = MAX;
@@ -44,7 +45,6 @@ void display(STACK S) {
     STACK tempStack;
     char elem;
 
-
     initialize(&tempStack);
 
     if (isEmpty(S)) {
@@ -53,7 +53,7 @@ void display(STACK S) {
     }
 
     // Transfer and display the elements into the temporary stack
-    while (S.top < MAX) {
+    while (!isEmpty(S)) {
         elem = S.elem[S.top];
         printf("%c ", elem);
         push(&tempStack, elem);
@@ -62,20 +62,35 @@ void display(STACK S) {
 
     //Free temp
     while (!isEmpty(tempStack)) {
-        elem = tempStack.elem[tempStack.top]; 
         pop(&tempStack);
     }
 
     printf("\n");
 }
 
+void insertBottom(STACK *S, char data){
+    STACK tempStack;
+    char elem;
 
-// Write the code of the function insertBottom(), the function will insert a new element at the 
-// bottom of the stack. This is implemented by using function calls only
-// > initialize()
-// > push()
-// > pop()
-// > top()
-// > isEmpty() and isFull()
+    initialize(&tempStack);
+
+    if (isFull(*S) && isEmpty(*S)) {
+        printf("Error inserting. \n");
+        return;
+    }
+    while (!isEmpty(*S)) {
+        elem = S->elem[S->top];
+        push(&tempStack, elem);
+        pop(S);
+    }
+
+    push(S,data);//insert bottom
+
+    while (!isEmpty(tempStack)) {
+        elem = tempStack.elem[tempStack.top];
+        push(S,elem);
+        pop(&tempStack);
+    }
+}
 
 #endif
