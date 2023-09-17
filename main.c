@@ -13,18 +13,18 @@ int main(){
     push(&Ss, 'C');
 
     printf("Stack after pushing A, B, C:\n");
-    display(&Ss);
+    display(Ss);
 
     pop(&Ss);
 
     printf("Stack after popping one element:\n");
-    display(&Ss);
+    display(Ss);
 
     push(&Ss, 'D');
     push(&Ss, 'E');
 
     printf("Stack after pushing D and E:\n");
-    display(&Ss);
+    display(Ss);
 
     return 0;
 }

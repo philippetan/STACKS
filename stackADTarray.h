@@ -13,7 +13,7 @@ void push(STACK *S, char data);
 void pop(STACK *S);
 int isEmpty(STACK S);
 int isFull(STACK S); //1 - true, 0 - false
-void display(STACK *S);
+void display(STACK S);
 
 void initialize(STACK *S){
     S->top = MAX;
@@ -23,13 +23,13 @@ void push(STACK *S,char data){
     if(!isFull(*S)){
         S->top--;
         S->elem[S->top] = data;
-    } //else if(isFull(S)== 1){}
+    } //else if(isFull(*S)== 1){}
 }
 
 void pop(STACK *S){
     if(!isEmpty(*S)){
         S->top++;
-    } //else if(isEmpty(S)== 1){}
+    } //else if(isEmpty(*S)== 1){}
 }
 
 int isEmpty(STACK S){
@@ -40,23 +40,23 @@ int isFull(STACK S){
     return (S.top == 0) ? 1 : 0; //1 is Full, 0 is not Full
 }
 
-void display(STACK *S) {
+void display(STACK S) {
     STACK tempStack;
     char elem;
 
+
     initialize(&tempStack);
 
-    if (isEmpty(*S)) {
+    if (isEmpty(S)) {
         printf("Stack is empty. Nothing to display.\n");
         return;
     }
 
     // Transfer the elements into the temporary stack
-    int index = S->top;
-    while (index < MAX) {
-        elem = S->elem[index];
+    while (S.top < MAX) {
+        elem = S.elem[S.top];
         push(&tempStack, elem);
-        index++;
+        S.top++;
     }
 
     // Display the elements in the temporary stack
