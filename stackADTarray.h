@@ -26,7 +26,9 @@ void push(STACK *S,char data){
 }
 
 void pop(STACK *S){
-
+    if(isEmpty(S) == 0){
+        S->top++;
+    } //else if(isEmpty(S)== 1){}
 }
 
 int isEmpty(STACK *S){
