@@ -1,5 +1,6 @@
 #ifndef STACKADTLINKLIST_H
 #define STACKADTLINKLIST_H
+#include <stdlib.h>
 
 typedef struct node{
 	char elem;
@@ -57,6 +58,7 @@ void display(STACK S){
 			pop(&temp);
 		}
 	}
+	 printf("\n");
 }
 
 #endif

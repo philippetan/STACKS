@@ -52,18 +52,18 @@ void display(STACK S) {
         return;
     }
 
-    // Transfer the elements into the temporary stack
+    // Transfer and display the elements into the temporary stack
     while (S.top < MAX) {
         elem = S.elem[S.top];
+        printf("%c ", elem);
         push(&tempStack, elem);
         S.top++;
     }
 
-    // Display the elements in the temporary stack
+    //Free temp
     while (!isEmpty(tempStack)) {
         elem = tempStack.elem[tempStack.top]; 
         pop(&tempStack);
-        printf("%c ", elem);
     }
 
     printf("\n");
