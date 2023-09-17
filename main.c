@@ -2,7 +2,7 @@
 #include "stackADTarray.h"
 // #include "stackADTlinklist.h"
 
-void insertBottom(STACK *S, char data){
+void insertBottomArr(STACK *S, char data){
     STACK tempStack;
     char elem;
 
@@ -49,7 +49,7 @@ int main(){
     printf("Stack after pushing D and E:\n");
     display(Ss);
 
-    insertBottom(&Ss,'J');
+    insertBottomArr(&Ss,'J');
     
     printf("Stack after inserting J in bottom:\n");
     display(Ss);
